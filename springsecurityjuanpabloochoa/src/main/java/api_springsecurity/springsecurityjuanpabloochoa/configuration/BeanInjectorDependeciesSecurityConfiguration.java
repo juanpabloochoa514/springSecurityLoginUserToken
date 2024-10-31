@@ -29,10 +29,8 @@ public class BeanInjectorDependeciesSecurityConfiguration {
 	
 	@Bean
     public UserDetailsService userDetailService() {
-//        return username -> userRepository.findByUsername(username)
-//        .orElseThrow(()-> new UsernameNotFoundException("User not fournd"));
-//        
-        UserDetailsService username = userRepository.findByUsername(null);
+        return username -> userRepository.findByUsername(username)
+        .orElseThrow(()-> new UsernameNotFoundException("User not found"));
     }
 
 
