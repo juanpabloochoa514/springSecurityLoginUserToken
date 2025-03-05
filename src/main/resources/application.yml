@@ -1,0 +1,28 @@
+server:
+  port: 8762
+
+
+spring:
+  application:
+    name: msvc-gateway
+  config:
+    import: 'optional:configserver:http://localhost:8888'
+  datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/personDB
+      username: juan
+      password: Laguacha$899265
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    
+  
+        
+eureka:
+   instance:
+     hostname: localhost
+   client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
